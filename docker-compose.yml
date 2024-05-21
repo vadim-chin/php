@@ -1,0 +1,16 @@
+version: '3.8'  # Use a version of Docker Compose file syntax that is compatible with your Docker Engine version
+
+services:
+  db:
+    image: mysql:8.0  # You can specify another version of MySQL if you need
+    container_name: mysql_server
+    ports:
+      - "3306:3306"  # Map the default MySQL port 3306 from the container to the host
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Set the password for the MySQL root user
+      MYSQL_DATABASE: exampledb  # Create a default database
+      MYSQL_USER: user  # Create a default user
+      MYSQL_PASSWORD: user  # Set the password for the default user
+    volumes:
+      - ./data:/var/lib/mysql  # Persist database data to named volume
+
